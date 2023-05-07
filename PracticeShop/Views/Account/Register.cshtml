@@ -1,0 +1,35 @@
+﻿@model WebStore.ViewModels.RegisterViewModel
+
+<h2>Registration of the new user</h2>
+
+<form method="post" asp-controller="Account" asp-action="Register">
+    <div asp-validation-summary="ModelOnly"/>
+
+    <div>
+        <label asp-for="Email">Email</label><br />
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+
+    <div>
+        <label asp-for="UserName">Username</label><br />
+        <input asp-for="UserName" />
+        <span asp-validation-for="UserName"></span>
+    </div>
+
+    <div>
+        <label asp-for="Password">Password</label><br />
+        <input asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+
+    <div>
+        <label asp-for="PasswordConfirm">Confirm password</label><br />
+        <input asp-for="PasswordConfirm" />
+        <span asp-validation-for="PasswordConfirm"></span>
+    </div>
+
+    <div>
+        <input class="btn btn-primary" type="submit" value="Confirm" />
+    </div>
+</form>

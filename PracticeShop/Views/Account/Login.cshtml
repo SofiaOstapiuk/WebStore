@@ -1,0 +1,28 @@
+﻿@model WebStore.ViewModels.LoginViewModel
+
+<h2>Login</h2>
+
+<form method="post" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Model.ReturnUrl">
+    <div asp-validation-summary="ModelOnly"></div>
+
+    <div>
+        <label asp-for="UserName">Username</label><br />
+        <input asp-for="UserName" />
+        <span asp-validation-for="UserName"></span>
+    </div>
+
+    <div>
+        <label asp-for="Password">Password</label><br />
+        <input asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+
+    <div>
+        <label asp-for="RememberMe">Remember me</label>
+        <input asp-for="RememberMe" />
+    </div>
+
+    <div>
+        <input class="btn btn-primary" type="submit" value="Login" />
+    </div>
+</form>

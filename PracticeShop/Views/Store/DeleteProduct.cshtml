@@ -1,0 +1,29 @@
+﻿@model IEnumerable<WebStore.Models.Product>;
+
+<div>
+    <table class="table">
+        <tr>
+            <td>
+                <p>Name</p>
+            </td>
+
+            <td>
+            </td>
+        </tr>
+
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>
+                    <p>@product.Name</p>
+                </td>
+
+                <td>
+                    <form method="post" asp-route-id="@product.Id" asp-action="DeleteProduct">
+                        <input class="btn btn-sm btn-danger" type="submit" value="Delete"/>
+                    </form>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

@@ -1,0 +1,37 @@
+﻿@model WebStore.ViewModels.EditProductViewModel
+
+<form method="post" asp-action="EditProduct" asp-controller="Store">
+    <div>
+        <label asp-for="Name">Name</label><br />
+        <input type="text" asp-for="Name" />
+    </div>
+
+    <div>
+        <label asp-for="Manufacturer">Manufacturer</label><br />
+        <input type="text" asp-for="Manufacturer" />
+    </div>
+
+    <div>
+        <label asp-for="Description">Description</label><br />
+        <input type="text" asp-for="Description" />
+    </div>
+
+    <div>
+        <label asp-for="Price">Price</label><br />
+        <input type="number" asp-for="Price" />
+    </div>
+
+    <div>
+        <label asp-for="SerialNumber">SerialNumber</label><br />
+        <input type="text" asp-for="SerialNumber" />
+    </div>
+
+    <div>
+        <label asp-for="Image">Image</label><br />
+        <input type="text" asp-for="Image" />
+    </div>
+
+    <div class="form-group">
+        <input class="btn btn-sm btn-primary" type="submit" value="Save changes" />
+    </div>
+</form>

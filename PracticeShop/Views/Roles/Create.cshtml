@@ -1,0 +1,12 @@
+﻿@model string
+
+<div asp-validation-summary="All" class="text-danger"/>
+
+<form method="post" asp-action="Create">
+    <div class="form-group">
+        <label for="name">New role</label>
+        <input name="name" class="form-control" />
+    </div>
+
+    <input class="btn btn-primary" type="submit" value="Confirm" />
+</form>

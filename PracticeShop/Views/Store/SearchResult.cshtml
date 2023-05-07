@@ -1,0 +1,74 @@
+﻿@model List<WebStore.Models.Product>;
+
+<div>
+    <div>
+        <p class="TitleText">Products</p>
+    </div>
+
+    <table class="table">
+        <tr>
+            <td>
+                <p>Image</p>
+            </td>
+
+            <td>
+                <p>Name</p>
+            </td>
+
+            <td>
+                <p>Manufacturer</p>
+            </td>
+
+            <td>
+                <p>Description</p>
+            </td>
+
+            <td>
+                <p>Price $</p>
+            </td>
+
+            <td>
+                <p>Serial Number</p>
+            </td>
+
+            <td>
+                <p></p>
+            </td>
+        </tr>
+
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>
+                    <p><img src=@product.Image alt="No image" width="100" height="100" /></p>
+                </td>
+
+                <td>
+                    <p>@product.Name</p>
+                </td>
+
+                <td>
+                    <p>@product.Manufacturer</p>
+                </td>
+
+                <td>
+                    <p>@product.Description</p>
+                </td>
+
+                <td>
+                    <p>@product.Price</p>
+                </td>
+
+                <td>
+                    <p>@product.SerialNumber</p>
+                </td>
+
+                <td>
+                    <form method="post" asp-controller="Store" asp-action="AddToBin" asp-route-id="@product.Id">
+                        <input class="btn btn-sm btn-primary" type="submit" value="Add to bin" />
+                    </form>
+                </td>
+            </tr>
+}
+    </table>
+</div>

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<WebStore.Models.Transaction>;
+
+<div>
+    <div>
+        <p class="TitleText">Transactions</p>
+    </div>
+    <table class="table">
+        <tr>
+            <td>
+                <p>UserName</p>
+            </td>
+            <td>
+                <p>Date</p>
+            </td>
+            <td>
+                <p>SerialNumbers</p>
+            </td>
+            <td>
+                <p>Prices</p>
+            </td>
+        </tr>
+        @foreach (var device in Model)
+        {
+            <tr>
+                <td>
+                    <p>@device.UserName</p>
+                </td>
+                <td>
+                    <p>@device.Date</p>
+                </td>
+                <td>
+                    <p>@device.SerialNumber</p>
+                </td>
+                <td>
+                    <p>@device.Price</p>
+                </td>
+            </tr>
+        }
+    </table>
+   
+</div>

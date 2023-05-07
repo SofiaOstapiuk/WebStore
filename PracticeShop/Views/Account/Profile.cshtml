@@ -1,0 +1,26 @@
+﻿@model WebStore.Models.User
+<div>
+
+    <table class="table">
+        <tr>
+            <td>Username: </td>
+            <td>@Model.UserName</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>@Model.Email</td>
+        </tr>
+        <tr>
+            <td>
+                <form method="get" asp-controller="Account" asp-action="EditAccount">
+                    <input class="btn btn-primary" type="submit" value="Change profile" />
+                </form>
+            </td>
+            <td>
+                <form method="get" asp-controller="Account" asp-action="ChangePassword">
+                    <input class="btn btn-primary" type="submit" value="Change password" />
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>

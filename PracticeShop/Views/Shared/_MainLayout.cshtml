@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Store</title>
+        <meta charset="utf-8">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <link rel="stylesheet" href="~/css/index.css">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </head>
+
+    <body>
+        <header>
+            <div class="container">
+    
+                <div class="dropdown">
+                    <button class="dropbtn">Menu</button>
+    
+                    <div class="dropdown-content menu">
+                        <a class="nav-link" asp-area="" asp-controller="Store" asp-action="Index">Main page</a>
+                        <a class="nav-link" asp-area="" asp-controller="Store" asp-action="SearchItemPage">Search</a>
+                        <a class="nav-link" asp-area="" asp-controller="Store" asp-action="UserBin">Cart</a>
+                    </div>
+                </div>
+                
+                @if (User.Identity.IsAuthenticated)
+                {
+    
+                    <div class="dropdown float-right">
+                        <button class="dropbtn text-capitalize">@User.Identity.Name</button>
+    
+                        <div class="dropdown-content menu">
+                            <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Profile">Profile</a>
+                            <a class="nav-link" asp-area="" asp-controller="Store" asp-action="ShowTransactions">Transactions</a>
+
+                            @if (User.IsInRole("admin"))
+                            {
+                                <a class="nav-link" asp-area="" asp-controller="Store" asp-action="AddProduct">Add product</a>
+                                <a class="nav-link" asp-area="" asp-controller="Store" asp-action="EditProductView">Edit product</a>
+                                <a class="nav-link" asp-area="" asp-controller="Store" asp-action="DeleteProduct">Delete product</a>
+                                <a class="nav-link" asp-area="" asp-controller="Roles" asp-action="Index">Roles management</a>
+                            }
+
+                            <form class="text-lg-right" method="post" asp-controller="Account" asp-action="Logout">
+                                <input class="nav-link" type="submit" value="Exit" />
+                            </form>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="dropdown float-right">
+                        <button class="dropbtn search">Account</button>
+    
+                        <form class="dropdown-content menu" method="post">
+                            <a class="nav-link" asp-controller="Account" asp-action="Login">Login</a><br />
+                            <a class="nav-link" asp-controller="Account" asp-action="Register">Register</a><br />
+                        </form>
+                    </div>
+                }
+            </div>
+        </header>
+    
+        <div>
+    
+            <div class="main">
+                <main>
+                    <div class="table-list">
+                        @RenderBody()
+                    </div>
+                </main>
+            </div>
+        </div>
+    
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @RenderSection("Scripts", required: false)
+    </body>
+</html>
